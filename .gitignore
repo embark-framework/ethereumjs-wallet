@@ -42,3 +42,6 @@ package-lock.json
 
 # build output
 dist
+
+# pack output
+embarklabs-ethereumjs-wallet-*.tgz

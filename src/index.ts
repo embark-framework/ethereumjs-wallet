@@ -3,7 +3,7 @@ import * as ethUtil from 'ethereumjs-util'
 
 const bs58check = require('bs58check')
 const randomBytes = require('randombytes')
-const scryptsy = require('scrypt.js')
+const scrypt = require('@web3-js/scrypt-shim')
 const uuidv4 = require('uuid/v4')
 
 // parameters for the toV3() method
@@ -313,7 +313,7 @@ export default class Wallet {
     }
 
     const kdfparams = json.Crypto.KeyHeader.KdfParams
-    const derivedKey = scryptsy(
+    const derivedKey = scrypt(
       Buffer.from(password),
       Buffer.from(json.Crypto.Salt, 'hex'),
       kdfparams.N,
@@ -354,7 +354,7 @@ export default class Wallet {
       kdfparams = json.crypto.kdfparams
 
       // FIXME: support progress reporting callback
-      derivedKey = scryptsy(
+      derivedKey = scrypt(
         Buffer.from(password),
         Buffer.from(kdfparams.salt, 'hex'),
         kdfparams.n,
@@ -491,7 +491,7 @@ export default class Wallet {
       case KDFFunctions.Scrypt:
         kdfParams = kdfParamsForScrypt(v3Params)
         // FIXME: support progress reporting callback
-        derivedKey = scryptsy(
+        derivedKey = scrypt(
           Buffer.from(password),
           kdfParams.salt,
           kdfParams.n,

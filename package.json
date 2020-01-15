@@ -1,11 +1,12 @@
 {
-  "name": "ethereumjs-wallet",
+  "name": "@embarklabs/ethereumjs-wallet",
   "version": "0.6.3",
   "description": "Utilities for handling Ethereum keys",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "hdkey.js"
   ],
   "scripts": {
     "build": "ethereumjs-config-build",
@@ -14,6 +15,7 @@
     "coveralls": "ethereumjs-config-coveralls",
     "format": "ethereumjs-config-format",
     "format-fix": "ethereumjs-config-format-fix",
+    "format:fix": "ethereumjs-config-format-fix",
     "lint": "ethereumjs-config-lint",
     "lint-fix": "ethereumjs-config-lint-fix",
     "pretest": "npm run build",
@@ -43,12 +45,12 @@
   },
   "homepage": "https://github.com/ethereumjs/ethereumjs-wallet",
   "dependencies": {
+    "@web3-js/scrypt-shim": "^0.1.0",
     "aes-js": "^3.1.1",
     "bs58check": "^2.1.2",
     "ethereumjs-util": "^6.0.0",
     "hdkey": "^1.1.1",
     "randombytes": "^2.0.6",
-    "scrypt.js": "^0.3.0",
     "utf8": "^3.0.0",
     "uuid": "^3.3.2"
   },
